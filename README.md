@@ -1,6 +1,9 @@
 # 2048-pure-js
 Classic 2048 game built only using Javascript, HTML and CSS.
 
+# Live
+https://vijays-2048.vercel.app/
+
 # How to Play?
 Use your `arrow keys` to move the tiles. Tiles with
 the same number `merge into one` when they touch. Add
