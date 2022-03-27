@@ -1,0 +1,148 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  /* margin: 0; */
+  font-size: 7.5vmin;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.resetGame {
+  font-size: 20px;
+  padding: 2vmin 4vmin;
+  color: #eee;
+  cursor: pointer;
+  background-color: #57407c;
+  border-radius: 1vmin;
+  transition: 200ms ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resetGame:hover {
+  color: #57407c;
+  background-color: #eee;
+}
+
+.instructions {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  background-color: #eee;
+  color: #57407c;
+  border-radius: 50%;
+  transition: 200ms ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions:hover {
+  background-color: #57407c;
+  color: #eee;
+}
+
+#game-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+  background-color: #57407c;
+  gap: var(--cell-gap);
+  padding: var(--cell-gap);
+  border-radius: 1vmin;
+}
+
+.cell {
+  background-color: #3d2963;
+  border-radius: 1vmin;
+}
+
+.tile {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  /* background-color: hsl(200, 50%, var(--background-lightness)); */
+  /* color: hsl(200, 25%, var(--text-lightness)); */
+  border-radius: 1vmin;
+  font-weight: bold;
+
+  /* (var(--cell-size) + var(--cell-gap))  -> cell size and gap between each cell */
+  /* Final var(--cell-gap)  -> outer gap of container */
+  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+
+  animation: show 200ms ease-in-out;
+  transition: 100ms ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+}
+
+/* Misc */
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 12px;
+  width: 50%;
+  font-size: 20px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
